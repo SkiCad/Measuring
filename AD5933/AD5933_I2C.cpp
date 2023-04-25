@@ -519,6 +519,7 @@ bool AD5933::calibrate(double gain[], int phase[], int ref, int n) {
     // For each point in the sweep, calculate the gain factor and phase
     for (int i = 0; i < n; i++) {
         gain[i] = (double)(1.0/ref)/sqrt(pow(real[i], 2) + pow(imag[i], 2));
+        phase[i]= 100*atan2(imag[i],real[i]);
         // TODO: phase
     }
 
@@ -549,6 +550,7 @@ bool AD5933::calibrate(double gain[], int phase[], int real[], int imag[],
     // For each point in the sweep, calculate the gain factor and phase
     for (int i = 0; i < n; i++) {
         gain[i] = (double)(1.0/ref)/sqrt(pow(real[i], 2) + pow(imag[i], 2));
+        phase[i] = (int) atan2(imag[i],real[i])*100;
         // TODO: phase
     }
 

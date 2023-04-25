@@ -51,10 +51,10 @@ void loop(void)
   delay(5000);
 
   // Complex but more robust method for frequency sweep
-  frequencySweepRaw();
+  //frequencySweepRaw();
 
   // Delay
-  delay(5000);
+  //delay(5000);
 }
 
 // Easy way to do a frequency sweep. Does an entire frequency sweep at once and
@@ -75,6 +75,8 @@ void frequencySweepEasy() {
         Serial.print(real[i]);
         Serial.print("/I=");
         Serial.print(imag[i]);
+        Serial.print(" Θ=");
+        Serial.print((float)phase[i]/100);
 
         // Compute impedance
         double magnitude = sqrt(pow(real[i], 2) + pow(imag[i], 2));
